@@ -1,0 +1,36 @@
+{{ 2 + 2 }}
+<h1>
+  {{ "Hello World!!!" + " " + title }}
+</h1>
+<button (click)="addItem()">Add Item</button>
+<input type="text" [(ngModel)]="title" />
+<h3 innerText="{{ title }}"></h3>
+<div *ngIf="1 === 1">Hi</div>
+
+<div *ngIf="title === 'Store'; then store; else welcome">
+  Simple vista
+</div>
+<!-- Vista o template-->
+<ng-template #store>
+  Mostrando contenido
+</ng-template>
+
+<ng-template #welcome>
+  Bienvenido a Platzi Store
+</ng-template>
+
+<ul>
+  <li *ngIf="items.length === 0">La lista esta vacia</li>
+  <li *ngFor="let item of items; index as ind">
+    {{ item }} {{ ind + 1 }} <button (click)="deleteItem(ind)">Delete</button>
+  </li>
+</ul>
+
+
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'nicolas'">este es nicolas</p>
+  <p *ngSwitchCase="'julian'">este es julian</p>
+  <p *ngSwitchCase="'camilo'">este es camilo</p>
+  <p *ngSwitchDefault>no hay match</p>
+</div>

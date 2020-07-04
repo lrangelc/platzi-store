@@ -1,8 +1,8 @@
-<h3>{{ product.title | uppercase }}</h3>
+<h3 appHighlight >{{ product.title | uppercase }}</h3>
 <img [src]="product.image" alt="" />
 <strong>{{ product.price | currency: "GTQ" }}</strong>
 <p>{{ product.description | slice: 0:10 }}</p>
 <p>{{ today | date: "short" }}</p>
-<p>{{ (product.price / 10000) | exponential:2 }}</p>
+<p appHighlight>{{ (product.price / 10000) | exponential:2 }}</p>
 <br />
 <button (click)="addCart(product)">Agregar al carrito</button>
