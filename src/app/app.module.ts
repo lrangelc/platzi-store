@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
-import { ItemComponent } from './components/item/item.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 import { HighlightDirective } from './directives/highlight/highlight.directive';
@@ -18,12 +17,12 @@ import { FotterComponent } from './components/fotter/fotter.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ItemComponent,
     CartComponent,
     ExponentialPipe,
     HighlightDirective,
@@ -36,6 +35,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     BannerComponent,
     PageNotFoundComponent,
     ProductDetailComponent,
+    LayoutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
