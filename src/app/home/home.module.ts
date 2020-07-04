@@ -5,10 +5,10 @@ import { HomeComponent } from './components/home/home.component';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from './../shared/shared.module';
-import { BannComponent } from './components/bann/bann.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
-  declarations: [HomeComponent, BannComponent],
+  declarations: [HomeComponent, BannerComponent],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
 export class HomeModule {}
