@@ -27,10 +27,7 @@
 </ul>
 
 <div *ngFor="let product of products">
-  {{ product.title }}
-  {{ product.image }}
-  <img [src]="product.image" alt="" width="100px" />
-  <img src="{{ product.image }}" width="100px" />
+  <app-product [product]="product" (productClicked)="clickProduct($event)" ></app-product>
 </div>
 
 <div [ngSwitch]="title">
