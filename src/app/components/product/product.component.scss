@@ -1,11 +1,30 @@
-img {
-    max-width: 100%;
+:host {
+  position: relative;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
 }
 
-:host {
-    border: 1px solid black;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
-    display: block;
+img {
+  max-width: 100%;
+}
+
+button {
+  position: absolute;
+  background-color: #46a049;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  box-shadow: none;
+  box-sizing: inherit;
+  right: 10px;
+  bottom: 10px;
+}
+
+strong {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
