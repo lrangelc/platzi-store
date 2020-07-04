@@ -13,9 +13,12 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FotterComponent } from './components/fotter/fotter.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, ItemComponent, CartComponent, ExponentialPipe, HighlightDirective, HomeComponent, ProductsComponent, ContactComponent, DemoComponent],
+  declarations: [AppComponent, ProductComponent, ItemComponent, CartComponent, ExponentialPipe, HighlightDirective, HomeComponent, ProductsComponent, ContactComponent, DemoComponent, HeaderComponent, FotterComponent, BannerComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
