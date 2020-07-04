@@ -3,6 +3,7 @@
 <strong>{{ product.price | currency: "GTQ" }}</strong>
 <p>{{ product.description | slice: 0:10 }}</p>
 <p>{{ today | date: "short" }}</p>
+<a [routerLink]="['/products',product.id]" >Ver detalle</a>
 <p appHighlight>{{ (product.price / 10000) | exponential:2 }}</p>
 <br />
 <button (click)="addCart(product)">Agregar al carrito</button>
