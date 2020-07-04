@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-  margin: 0;
-  padding: 0;
-}
+// body {
+//   margin: 0;
+//   padding: 0;
+// }
 
 // .product-grid {
 //     display: grid;
@@ -23,3 +23,6 @@ body {
     minmax(300px, 1fr)
   ); // nos hará breakpoints cada 300px
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
