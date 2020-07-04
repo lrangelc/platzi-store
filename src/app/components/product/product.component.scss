@@ -1,0 +1,11 @@
+img {
+    max-width: 100%;
+}
+
+:host {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+}
