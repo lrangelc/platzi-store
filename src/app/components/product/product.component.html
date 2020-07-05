@@ -6,4 +6,4 @@
 <a [routerLink]="['/products',product.id]" >Ver detalle</a>
 <p appHighlight>{{ (product.price / 10000) | exponential:2 }}</p>
 <br />
-<button (click)="addCart(product)">Agregar al carrito</button>
+<button mat-raised-button color="primary" (click)="addCart(product)">Agregar al carrito</button>
