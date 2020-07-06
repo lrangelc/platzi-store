@@ -8,7 +8,9 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+
   products: Product[];
+
   constructor(private productsService: ProductsService) {}
 
   fetchProducts() {
