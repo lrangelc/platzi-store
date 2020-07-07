@@ -33,6 +33,14 @@
               type="number"
             />
           </mat-form-field>
+          <div *ngIf="priceField.errors && priceField.dirty">
+            <mat-error *ngIf="form.get('price').hasError('required')"
+              >el campo es requerido</mat-error
+            >
+            <mat-error *ngIf="priceField.hasError('price_invalid')"
+              >el precio es invalido</mat-error
+            >
+          </div>
         </div>
       </div>
       <div class="row">
@@ -49,7 +57,9 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button type="submit">Guardar</button>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">
+        Guardar
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>

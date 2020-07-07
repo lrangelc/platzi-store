@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductsService } from './../../../core/services/products/products.service';
+import { CustomValidators } from './../../../utils/custom-validators';
 
 @Component({
   selector: 'app-form-product',
@@ -25,7 +26,7 @@ export class FormProductComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       title: ['', [Validators.required]],
-      price: [0, [Validators.required]],
+      price: ['', [Validators.required, CustomValidators.isPriceValid]],
       image: [''],
       description: ['', [Validators.required]],
     });
@@ -41,5 +42,9 @@ export class FormProductComponent implements OnInit {
       });
     }
     console.log(this.form.value);
+  }
+
+  get priceField() {
+    return this.form.get('price');
   }
 }
