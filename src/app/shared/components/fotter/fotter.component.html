@@ -42,17 +42,17 @@
               [formControl]="emailField"
               type="email"
             />
-            <button
-              mat-raised-button
-              [disabled]="emailField.invalid"
-              (click)="sendMail()"
-            >
-              enviar
-            </button>
-            <p *ngIf="emailField.invalid && emailField.dirty">
-              Escriba un email valido
-            </p>
           </mat-form-field>
+          <button
+            mat-raised-button
+            [disabled]="emailField.invalid"
+            (click)="sendMail()"
+          >
+            enviar
+          </button>
+          <p *ngIf="emailField.invalid && emailField.dirty">
+            Escriba un email valido
+          </p>
         </div>
       </div>
     </div>
