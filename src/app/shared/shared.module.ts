@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FotterComponent } from './components/fotter/fotter.component';
 
 import { MaterialModule } from './../material/material.module';
+import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,14 @@ import { MaterialModule } from './../material/material.module';
     HighlightDirective,
     HeaderComponent,
     FotterComponent,
+    GroupProductsPipe,
   ],
   exports: [
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
     FotterComponent,
+    GroupProductsPipe,
   ],
   imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
 })
