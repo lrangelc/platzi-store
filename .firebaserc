@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "blogeekplatzilarc": {
+      "hosting": {
+        "platzi-store": [
+          "blogeekplatzilarc"
+        ]
+      }
+    }
+  }
+}
