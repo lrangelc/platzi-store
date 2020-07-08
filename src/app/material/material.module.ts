@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatTableModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,7 +43,8 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatTableModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule,
   ],
 })
 export class MaterialModule {}
