@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Registro</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="register($event)">
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">
+        Registrarse
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
