@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
-import { ProductsComponent } from './components/products/products.component';
+import { ProductsContainer } from './containers/products/products.container';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -30,7 +30,7 @@ import { environment } from './../environments/environment';
     AppComponent,
     ProductComponent,
     CartComponent,
-    ProductsComponent,
+    ProductsContainer,
     ContactComponent,
     DemoComponent,
     PageNotFoundComponent,

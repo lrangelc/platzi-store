@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { ProductsComponent } from './components/products/products.component';
+import { ProductsContainer } from './containers/products/products.container';
 import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent,
+        component: ProductsContainer,
       },
       {
         path: 'products/:id',
