@@ -40,7 +40,7 @@ export class ProductsService {
   }
 
   getRandomUsers(): Observable<User[]> {
-    return this.http.get('https://randomuser.me/api/?results=5').pipe(
+    return this.http.get('https://XXXrandomuser.me/api/?results=5').pipe(
       catchError(handleHttpResponseError),
       // catchError((err) => {
       //   return throwError(
