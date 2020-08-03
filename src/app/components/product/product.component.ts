@@ -38,12 +38,13 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   ngDoCheck(): void {
-    console.log('ngDoCheck');
+    // console.log('ngDoCheck');
   }
 
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
   }
+
   addCart(product: Product): void {
     console.log(`add to the cart ${product.title}`);
 

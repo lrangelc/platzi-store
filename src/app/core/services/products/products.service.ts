@@ -3,7 +3,15 @@ import { Product } from './../../../models/product.model';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../../../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError, retry } from 'rxjs/operators';
+import { handleHttpResponseError } from './../../../utils/handleHttpResponseError';
+
+interface User {
+  email: string;
+  gender: string;
+  phone: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +37,37 @@ export class ProductsService {
 
   deleteProduct(id: string) {
     return this.http.delete(`${environment.url_api}/products/${id}`);
+  }
+
+  getRandomUsers(): Observable<User[]> {
+    return this.http.get('https://randomuser.me/api/?results=5').pipe(
+      retry(3),
+      catchError(handleHttpResponseError),
+      // catchError((err) => {
+      //   return throwError(
+      //     `ups algo salio mal status: ${err.status}, message: ${err.message}`
+      //   );
+      // }),
+      map((response: any) => {
+        return response.results as User[];
+
+        // const users: User[] = [];
+        // response.results.forEach((element: User) => {
+        //   users.push({
+        //     email: element.email,
+        //     gender: element.gender,
+        //     phone: element.phone,
+        //   });
+        // });
+
+        // return users;
+      })
+    );
+  }
+
+  getFile() {
+    return this.http.get('assets/files/test.txt', { responseType: 'text' });
+    // return this.http.get('./../../../../assets/files/test.txt', { responseType: 'text' });
   }
 }
 

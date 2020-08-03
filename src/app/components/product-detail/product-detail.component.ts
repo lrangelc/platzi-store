@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductsService } from './../../core/services/products/products.service';
 import { Product } from './../../models/product.model';
-import { ProductComponent } from './../../admin/components/product/product.component';
-// import { ProductComponent } from './../    admin/components/product/product.component';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,7 +12,7 @@ import { ProductComponent } from './../../admin/components/product/product.compo
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product;
+  product$: Observable<Product>;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,29 +20,14 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      console.log(params);
-      const id = params.id;
-      console.log(id);
-      this.fetchProduct(id);
-      // this.product = this.productsService.getProduct(id);
-      console.log('this.product');
-      console.log(this.product);
-    });
+    this.product$ = this.route.params.pipe(
+      switchMap((params: Params) => {
+        return this.productsService.getProduct(params.id);
+      })
+    );
   }
 
-  fetchProduct(id: string) {
-    this.productsService.getProduct(id).subscribe((product) => {
-      console.log('product');
-      console.log(product);
-      if (product.image.length === 0) {
-        product.image = 'assets/images/banner-3.jpg';
-      }
-      this.product = product;
-    });
-  }
-
-  createProduct() {
+  createProduct(): void {
     const newProduct: Product = {
       id: '223',
       title: 'Nuevo desde angular',
@@ -54,7 +40,7 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  updateProduct() {
+  updateProduct(): void {
     const updateProduct: Partial<Product> = {
       price: 2500,
       description: 'edicion titulo!',
@@ -67,11 +53,32 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
-  deleteProduct() {
-    this.productsService
-      .deleteProduct('223')
-      .subscribe((response) => {
-        console.log(response);
-      });
+  deleteProduct(): void {
+    this.productsService.deleteProduct('223').subscribe((response) => {
+      console.log(response);
+    });
+  }
+
+  getRandomUsers(): void {
+    console.log('getRandomUsersX1');
+    this.productsService.getRandomUsers().subscribe(
+      (users) => {
+        console.log('getRandomUsersX2');
+        console.log(users);
+      },
+      (err) => {
+        console.error(`ocurrio un error!!! ${err}`);
+        console.error(err.status);
+        console.error(err.message);
+        console.error(err);
+      }
+    );
+  }
+
+  getFile(): void {
+    this.productsService.getFile().subscribe((content) => {
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      FileSaver.saveAs(blob, 'archivo.txt');
+    });
   }
 }
