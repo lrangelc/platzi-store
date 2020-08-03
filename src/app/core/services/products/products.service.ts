@@ -3,8 +3,9 @@ import { Product } from './../../../models/product.model';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../../../../environments/environment';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { handleHttpResponseError } from './../../../utils/handleHttpResponseError';
 
 interface User {
   email: string;
@@ -40,6 +41,12 @@ export class ProductsService {
 
   getRandomUsers(): Observable<User[]> {
     return this.http.get('https://randomuser.me/api/?results=5').pipe(
+      catchError(handleHttpResponseError),
+      // catchError((err) => {
+      //   return throwError(
+      //     `ups algo salio mal status: ${err.status}, message: ${err.message}`
+      //   );
+      // }),
       map((response: any) => {
         return response.results as User[];
 

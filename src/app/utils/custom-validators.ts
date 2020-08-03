@@ -1,7 +1,7 @@
 import { AbstractControl } from '@angular/forms';
 
 export class CustomValidators {
-  static isPriceValid(control: AbstractControl) {
+  static isPriceValid(control: AbstractControl): any {
     const value = control.value;
     console.log(value);
     if (value > 10000) {

@@ -61,9 +61,17 @@ export class ProductDetailComponent implements OnInit {
 
   getRandomUsers(): void {
     console.log('getRandomUsersX1');
-    this.productsService.getRandomUsers().subscribe((users) => {
-      console.log('getRandomUsersX2');
-      console.log(users);
-    });
+    this.productsService.getRandomUsers().subscribe(
+      (users) => {
+        console.log('getRandomUsersX2');
+        console.log(users);
+      },
+      (err) => {
+        console.error(`ocurrio un error!!! ${err}`);
+        console.error(err.status);
+        console.error(err.message);
+        console.error(err);
+      }
+    );
   }
 }
