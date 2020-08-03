@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, retry } from 'rxjs/operators';
 import { handleHttpResponseError } from './../../../utils/handleHttpResponseError';
 
 interface User {
@@ -40,7 +40,8 @@ export class ProductsService {
   }
 
   getRandomUsers(): Observable<User[]> {
-    return this.http.get('https://XXXrandomuser.me/api/?results=5').pipe(
+    return this.http.get('https://randomuser.me/api/?results=5').pipe(
+      retry(3),
       catchError(handleHttpResponseError),
       // catchError((err) => {
       //   return throwError(
@@ -62,6 +63,11 @@ export class ProductsService {
         // return users;
       })
     );
+  }
+
+  getFile() {
+    return this.http.get('assets/files/test.txt', { responseType: 'text' });
+    // return this.http.get('./../../../../assets/files/test.txt', { responseType: 'text' });
   }
 }
 

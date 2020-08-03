@@ -4,6 +4,7 @@ import { ProductsService } from './../../core/services/products/products.service
 import { Product } from './../../models/product.model';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-product-detail',
@@ -24,7 +25,6 @@ export class ProductDetailComponent implements OnInit {
         return this.productsService.getProduct(params.id);
       })
     );
-    this.getRandomUsers();
   }
 
   createProduct(): void {
@@ -73,5 +73,12 @@ export class ProductDetailComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+
+  getFile(): void {
+    this.productsService.getFile().subscribe((content) => {
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      FileSaver.saveAs(blob, 'archivo.txt');
+    });
   }
 }

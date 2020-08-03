@@ -24,6 +24,7 @@
     "@angular/router": "~10.0.2",
     "@sentry/browser": "^5.20.1",
     "angular-hammer": "^2.2.0",
+    "file-saver": "^2.0.2",
     "firebase": "^7.13.1",
     "flexboxgrid": "^6.3.1",
     "rxjs": "~6.5.5",
