@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from './../environments/environment';
+
+import { AuthInterceptor } from './auth/services/auth.interceptor';
 
 import * as Sentry from '@sentry/browser';
 
@@ -122,7 +125,14 @@ export class SentryErrorHandler implements ErrorHandler {
     AngularFireAuthModule,
     AngularFireStorageModule,
   ],
-  providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
+  providers: [
+    { provide: ErrorHandler, useClass: SentryErrorHandler },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
