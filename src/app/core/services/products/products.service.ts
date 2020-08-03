@@ -4,6 +4,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../../../../environments/environment';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+interface User {
+  email: string;
+  gender: string;
+  phone: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +36,25 @@ export class ProductsService {
 
   deleteProduct(id: string) {
     return this.http.delete(`${environment.url_api}/products/${id}`);
+  }
+
+  getRandomUsers(): Observable<User[]> {
+    return this.http.get('https://randomuser.me/api/?results=5').pipe(
+      map((response: any) => {
+        return response.results as User[];
+
+        // const users: User[] = [];
+        // response.results.forEach((element: User) => {
+        //   users.push({
+        //     email: element.email,
+        //     gender: element.gender,
+        //     phone: element.phone,
+        //   });
+        // });
+
+        // return users;
+      })
+    );
   }
 }
 

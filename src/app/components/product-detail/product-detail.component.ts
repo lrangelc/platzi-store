@@ -24,6 +24,7 @@ export class ProductDetailComponent implements OnInit {
         return this.productsService.getProduct(params.id);
       })
     );
+    this.getRandomUsers();
   }
 
   createProduct(): void {
@@ -55,6 +56,14 @@ export class ProductDetailComponent implements OnInit {
   deleteProduct(): void {
     this.productsService.deleteProduct('223').subscribe((response) => {
       console.log(response);
+    });
+  }
+
+  getRandomUsers(): void {
+    console.log('getRandomUsersX1');
+    this.productsService.getRandomUsers().subscribe((users) => {
+      console.log('getRandomUsersX2');
+      console.log(users);
     });
   }
 }
