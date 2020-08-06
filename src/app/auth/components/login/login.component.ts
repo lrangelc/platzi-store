@@ -16,9 +16,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService
-  ) {
-    this.buildForm();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -44,5 +42,13 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+  }
+
+  loginAPI() {
+    this.authService
+      .loginRestAPI('luisrangelc@gmail.com', '123')
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }

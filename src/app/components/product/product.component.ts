@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { Product } from '../../models/product.model';
 
-import { CartService } from './../../core/services/cart/cart.service';
+import { CartService } from '@core/services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -38,12 +38,13 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   ngDoCheck(): void {
-    console.log('ngDoCheck');
+    // console.log('ngDoCheck');
   }
 
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
   }
+
   addCart(product: Product): void {
     console.log(`add to the cart ${product.title}`);
 
