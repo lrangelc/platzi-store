@@ -3,7 +3,7 @@ import { Product } from './../../../models/product.model';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from './../../../../environments/environment';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, catchError, retry } from 'rxjs/operators';
 import { handleHttpResponseError } from './../../../utils/handleHttpResponseError';
 

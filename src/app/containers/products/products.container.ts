@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '@core/services/products/products.service';
 // import { ProductsService } from '@core/services/products/products.service';
+import { ProductsService } from './../../core/services/products/products.service';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -15,7 +15,6 @@ export class ProductsContainer implements OnInit {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    // this.products = this.productsService.getAllProducts();
     this.fetchProducts();
   }
 
