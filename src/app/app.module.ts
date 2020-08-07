@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsContainer } from './containers/products/products.container';
-import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
@@ -28,7 +27,10 @@ import { environment } from './../environments/environment';
 
 import { AuthInterceptor } from './auth/services/auth.interceptor';
 
+import { QuicklinkModule } from 'ngx-quicklink';
+
 import * as Sentry from '@sentry/browser';
+
 
 Sentry.init({
   dsn:
@@ -106,7 +108,6 @@ export class SentryErrorHandler implements ErrorHandler {
     ProductComponent,
     CartComponent,
     ProductsContainer,
-    ContactComponent,
     DemoComponent,
     PageNotFoundComponent,
     ProductDetailComponent,
@@ -124,6 +125,7 @@ export class SentryErrorHandler implements ErrorHandler {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    QuicklinkModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryErrorHandler },

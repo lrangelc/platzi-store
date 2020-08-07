@@ -29,6 +29,7 @@
     "file-saver": "^2.0.2",
     "firebase": "^7.13.1",
     "flexboxgrid": "^6.3.1",
+    "ngx-quicklink": "^0.2.3",
     "rxjs": "~6.5.5",
     "swiper": "^6.0.0",
     "tslib": "^2.0.0",

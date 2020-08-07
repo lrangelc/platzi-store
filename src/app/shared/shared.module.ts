@@ -10,6 +10,7 @@ import { FotterComponent } from './components/fotter/fotter.component';
 
 import { MaterialModule } from './../material/material.module';
 import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,12 @@ import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
     FotterComponent,
     GroupProductsPipe,
   ],
-  imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    QuicklinkModule,
+  ],
 })
 export class SharedModule {}
