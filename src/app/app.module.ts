@@ -35,6 +35,7 @@ import { AuthInterceptor } from './auth/services/auth.interceptor';
 import { QuicklinkModule } from 'ngx-quicklink';
 
 import * as Sentry from '@sentry/browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 Sentry.init({
   dsn:
@@ -130,7 +131,8 @@ export class SentryErrorHandler implements ErrorHandler {
     AngularFireAuthModule,
     AngularFireStorageModule,
     QuicklinkModule,
-    AngularFireAnalyticsModule
+    AngularFireAnalyticsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryErrorHandler },
