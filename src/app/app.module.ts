@@ -22,6 +22,11 @@ import { MaterialModule } from './material/material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {
+  AngularFireAnalyticsModule,
+  ScreenTrackingService,
+  UserTrackingService
+} from '@angular/fire/analytics';
 
 import { environment } from './../environments/environment';
 
@@ -30,7 +35,6 @@ import { AuthInterceptor } from './auth/services/auth.interceptor';
 import { QuicklinkModule } from 'ngx-quicklink';
 
 import * as Sentry from '@sentry/browser';
-
 
 Sentry.init({
   dsn:
@@ -125,7 +129,8 @@ export class SentryErrorHandler implements ErrorHandler {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    QuicklinkModule
+    QuicklinkModule,
+    AngularFireAnalyticsModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryErrorHandler },
@@ -134,6 +139,8 @@ export class SentryErrorHandler implements ErrorHandler {
       useClass: AuthInterceptor,
       multi: true,
     },
+    ScreenTrackingService,
+    UserTrackingService
   ],
   bootstrap: [AppComponent],
 })
