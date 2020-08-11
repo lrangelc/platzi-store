@@ -119,7 +119,7 @@ export class SentryErrorHandler implements ErrorHandler {
     LayoutComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     SharedModule,
