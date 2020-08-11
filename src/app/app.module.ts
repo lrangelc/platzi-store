@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsContainer } from './containers/products/products.container';
-import { ContactComponent } from './components/contact/contact.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
@@ -23,12 +22,20 @@ import { MaterialModule } from './material/material.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {
+  AngularFireAnalyticsModule,
+  ScreenTrackingService,
+  UserTrackingService
+} from '@angular/fire/analytics';
 
 import { environment } from './../environments/environment';
 
 import { AuthInterceptor } from './auth/services/auth.interceptor';
 
+import { QuicklinkModule } from 'ngx-quicklink';
+
 import * as Sentry from '@sentry/browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 Sentry.init({
   dsn:
@@ -106,14 +113,13 @@ export class SentryErrorHandler implements ErrorHandler {
     ProductComponent,
     CartComponent,
     ProductsContainer,
-    ContactComponent,
     DemoComponent,
     PageNotFoundComponent,
     ProductDetailComponent,
     LayoutComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     SharedModule,
@@ -124,6 +130,9 @@ export class SentryErrorHandler implements ErrorHandler {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    QuicklinkModule,
+    AngularFireAnalyticsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryErrorHandler },
@@ -132,6 +141,8 @@ export class SentryErrorHandler implements ErrorHandler {
       useClass: AuthInterceptor,
       multi: true,
     },
+    ScreenTrackingService,
+    UserTrackingService
   ],
   bootstrap: [AppComponent],
 })
