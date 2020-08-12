@@ -6,9 +6,16 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ListComponent } from './components/list/list.component';
 import { MaterialModule } from './../material/material.module';
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   declarations: [LayoutComponent, ListComponent],
-  imports: [CommonModule, ContactRoutingModule, MaterialModule, FormsModule],
+  imports: [
+    CommonModule,
+    ContactRoutingModule,
+    MaterialModule,
+    FormsModule,
+    SharedModule,
+  ],
 })
 export class ContactModule {}
