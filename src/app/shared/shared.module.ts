@@ -10,6 +10,8 @@ import { FotterComponent } from './components/fotter/fotter.component';
 
 import { MaterialModule } from './../material/material.module';
 import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
+import { QuicklinkModule } from 'ngx-quicklink';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
     HeaderComponent,
     FotterComponent,
     GroupProductsPipe,
+    FibonacciPipe,
   ],
   exports: [
     ExponentialPipe,
@@ -25,7 +28,14 @@ import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
     HeaderComponent,
     FotterComponent,
     GroupProductsPipe,
+    FibonacciPipe
   ],
-  imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    QuicklinkModule,
+  ],
 })
 export class SharedModule {}

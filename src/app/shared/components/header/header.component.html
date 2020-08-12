@@ -9,8 +9,14 @@
         <a mat-button routerLink="/contact" routerLinkActive="active"
           >Contact</a
         >
+        <a mat-button routerLink="/admin" routerLinkActive="active">Admin</a>
       </nav>
-      <a routerLink="/order" mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
+      <a
+        routerLink="/order"
+        mat-raised-button
+        [matBadge]="total$ | async"
+        matBadgeColor="warn"
+      >
         <mat-icon>shopping_cart</mat-icon>
         Carrito
       </a>

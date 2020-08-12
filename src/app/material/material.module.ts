@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -31,6 +32,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatSidenavModule,
     MatListModule,
     MatStepperModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -45,6 +47,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatSidenavModule,
     MatListModule,
     MatStepperModule,
+    MatChipsModule
   ],
 })
 export class MaterialModule {}
