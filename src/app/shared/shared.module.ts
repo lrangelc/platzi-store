@@ -11,6 +11,7 @@ import { FotterComponent } from './components/fotter/fotter.component';
 import { MaterialModule } from './../material/material.module';
 import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
     HeaderComponent,
     FotterComponent,
     GroupProductsPipe,
+    FibonacciPipe,
   ],
   exports: [
     ExponentialPipe,
@@ -26,6 +28,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
     HeaderComponent,
     FotterComponent,
     GroupProductsPipe,
+    FibonacciPipe
   ],
   imports: [
     CommonModule,
